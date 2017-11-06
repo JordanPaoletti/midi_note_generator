@@ -1,11 +1,11 @@
 name=midiKeyGen
-src=src\/main.c src\/midival.c
+src=src\/main.c src\/midival.c src\/midiheader.c
 winCC=x86_64-w64-mingw32-gcc
 winCCOpt=-s
 nixCC=gcc
 nixCCOpt=-Wall
 
-all:
+all: nix
 
 nix:
 	@${nixCC} ${nixCCOpts} ${src} -o ${name}
