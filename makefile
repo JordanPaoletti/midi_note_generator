@@ -1,5 +1,6 @@
 name=midiKeyGen
-src=src\/main.c src\/midival.c src\/midiheader.c
+src=main.c midival.c midiheader.c midivlq.c
+srcs=$(addprefix src\/, $(src))
 winCC=x86_64-w64-mingw32-gcc
 winCCOpt=-s
 nixCC=gcc
@@ -8,10 +9,10 @@ nixCCOpt=-Wall
 all: nix
 
 nix:
-	@${nixCC} ${nixCCOpts} ${src} -o ${name}
+	@${nixCC} ${nixCCOpts} ${srcs} -o ${name}
 
 win64:
-	@${winCC} ${winCCOpt} ${src} -o ${name}.exe
+	@${winCC} ${winCCOpt} ${srcs} -o ${name}.exe
 
 clean: clean_nix clean_win
 
@@ -22,5 +23,5 @@ clean_win:
 	@rm -f ${name}.exe
 
 debug:
-	@${nixCC} ${nixCCOpts} -g ${src} -o ${name}
+	@${nixCC} ${nixCCOpts} -g ${srcs} -o ${name}
 	@gdb -tui ${name}

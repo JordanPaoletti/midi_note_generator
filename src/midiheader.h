@@ -34,7 +34,9 @@ typedef enum MidiHeaderFormat {
     Multiple_Song
 } MidiHeaderFormat;
 
-MidiHeaderChunk *createMidiHeaderChunk(MidiHeaderFormat format,
-        uint16_t ntrks, uint16_t timeDiv);
+MidiHeaderChunk *createMidiHeaderChunk(MidiHeaderChunk *chunk,
+        MidiHeaderFormat format,
+        uint16_t ntrks,
+        uint16_t timeDiv);
 
 #endif

@@ -1,15 +1,18 @@
 #include <stdlib.h>
 #include "midiheader.h"
 
-MidiHeaderChunk *createMidiHeaderChunk(MidiHeaderFormat format,
-        uint16_t ntrks, uint16_t timeDiv) {
-    MidiHeaderChunk *retval = (MidiHeaderChunk *) malloc(sizeof(MidiHeaderChunk));
+MidiHeaderChunk *createMidiHeaderChunk(
+        MidiHeaderChunk *chunk,
+        MidiHeaderFormat format,
+        uint16_t ntrks,
+        uint16_t timeDiv 
+        ) {
 
-    retval->mthd = MTHD;
-    retval->length = HEADER_LENGTH;
-    retval->format = format;
-    retval->ntrks = ntrks;
-    retval->timeDivision = timeDiv;
+    chunk->mthd = MTHD;
+    chunk->length = HEADER_LENGTH;
+    chunk->format = format;
+    chunk->ntrks = ntrks;
+    chunk->timeDivision = timeDiv;
 
-    return retval;
+    return chunk;
 }

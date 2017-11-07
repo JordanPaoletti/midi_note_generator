@@ -5,7 +5,7 @@
 
 static int getNoteNumber(char note);
 
-static signed char middleCOctave = 5;
+static signed char middleCOctave = 4;
 
 /*
  * Sets the octave value for middle c
